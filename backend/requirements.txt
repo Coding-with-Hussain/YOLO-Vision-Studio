@@ -1,0 +1,24 @@
+# YOLO Vision Studio backend
+#
+# PyTorch: on Linux/Windows with an NVIDIA GPU, install the CUDA build first
+# following https://pytorch.org/get-started/locally/ (e.g. the cu124 index).
+# For CPU-only machines you can use the smaller CPU wheels:
+#   pip install torch torchvision --index-url https://download.pytorch.org/whl/cpu
+# Then install the rest with: pip install -r requirements.txt
+torch>=2.2
+torchvision>=0.17
+ultralytics>=8.3.0
+
+fastapi>=0.115
+uvicorn[standard]>=0.30
+python-multipart>=0.0.9
+pydantic>=2.7
+pydantic-settings>=2.3
+
+# Ultralytics already depends on opencv-python; do not add the -headless
+# variant as well, both provide the cv2 module and conflict.
+opencv-python>=4.9
+pillow>=10.3
+numpy>=1.26
+# Bundled ffmpeg binary used to encode browser-compatible H.264 videos.
+imageio-ffmpeg>=0.5

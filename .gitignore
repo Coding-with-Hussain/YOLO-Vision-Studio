@@ -1,0 +1,47 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Node / frontend
+node_modules/
+frontend/dist/
+frontend/coverage/
+*.tsbuildinfo
+
+# Environment files (keep the examples)
+.env
+.env.*
+!.env.example
+
+# Runtime storage: model weights, uploads, outputs, database
+backend/storage/*
+!backend/storage/weights/
+!backend/storage/uploads/
+!backend/storage/outputs/
+backend/storage/weights/*
+backend/storage/uploads/*
+backend/storage/outputs/*
+!backend/storage/**/.gitkeep
+
+# Model checkpoints and media anywhere in the tree
+*.pt
+*.pth
+*.onnx
+*.engine
+*.mp4
+*.mov
+*.webm
+*.avi
+
+# Ultralytics / misc
+runs/
+.DS_Store
+*.log
