@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#09090F" />
+    <meta name="description" content="YOLO Vision Studio: real-time object detection with your own YOLO models." />
+    <title>YOLO Vision Studio</title>
+    <script>
+      // Apply the saved theme before first paint to avoid a flash.
+      try {
+        var prefs = JSON.parse(localStorage.getItem("yvs-preferences") || "{}");
+        var theme = (prefs.state && prefs.state.theme) || "dark";
+        var dark = theme === "dark" || (theme === "system" && window.matchMedia("(prefers-color-scheme: dark)").matches);
+        document.documentElement.classList.toggle("dark", dark);
+      } catch (e) {}
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

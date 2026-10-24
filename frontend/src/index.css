@@ -1,0 +1,118 @@
+@import "@fontsource-variable/inter";
+@import "@fontsource-variable/jetbrains-mono";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /* Light theme */
+  :root {
+    --background: 246 247 251;
+    --sidebar: 255 255 255;
+    --card: 255 255 255;
+    --popover: 255 255 255;
+    --elevated: 240 241 247;
+    --accent: 234 236 244;
+    --muted: 238 240 246;
+    --border: 225 228 238;
+    --input: 216 220 232;
+    --foreground: 15 18 34;
+    --muted-foreground: 93 99 120;
+    --primary: 106 72 245;
+    --primary-foreground: 255 255 255;
+    --cyan: 8 145 178;
+    --success: 5 150 105;
+    --warning: 217 119 6;
+    --danger: 220 38 38;
+    color-scheme: light;
+  }
+
+  /* Dark theme (default) */
+  .dark {
+    --background: 9 9 15;
+    --sidebar: 16 17 26;
+    --card: 21 23 34;
+    --popover: 24 26 38;
+    --elevated: 29 31 45;
+    --accent: 34 37 53;
+    --muted: 27 29 42;
+    --border: 39 42 58;
+    --input: 48 52 72;
+    --foreground: 245 247 255;
+    --muted-foreground: 146 152 171;
+    --primary: 124 92 252;
+    --primary-foreground: 255 255 255;
+    --cyan: 34 211 238;
+    --success: 52 211 153;
+    --warning: 251 191 36;
+    --danger: 248 113 113;
+    color-scheme: dark;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "cv11", "ss01";
+    min-height: 100dvh;
+  }
+
+  ::selection {
+    background: rgb(var(--primary) / 0.35);
+  }
+
+  :focus-visible {
+    @apply outline-none ring-2 ring-ring/70 ring-offset-2 ring-offset-background;
+  }
+
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: rgb(var(--input)) transparent;
+  }
+}
+
+@layer components {
+  .surface {
+    @apply rounded-2xl border bg-card shadow-card;
+  }
+
+  .tabular {
+    font-variant-numeric: tabular-nums;
+  }
+
+  .bg-grid {
+    background-image:
+      linear-gradient(rgb(var(--border) / 0.45) 1px, transparent 1px),
+      linear-gradient(90deg, rgb(var(--border) / 0.45) 1px, transparent 1px);
+    background-size: 28px 28px;
+  }
+
+  .checkerboard {
+    background-color: rgb(var(--muted));
+    background-image:
+      linear-gradient(45deg, rgb(var(--elevated)) 25%, transparent 25%),
+      linear-gradient(-45deg, rgb(var(--elevated)) 25%, transparent 25%),
+      linear-gradient(45deg, transparent 75%, rgb(var(--elevated)) 75%),
+      linear-gradient(-45deg, transparent 75%, rgb(var(--elevated)) 75%);
+    background-size: 20px 20px;
+    background-position: 0 0, 0 10px, 10px -10px, -10px 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
